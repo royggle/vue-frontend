@@ -18,7 +18,7 @@
             <td>{{member.age}}</td>
             <td>
               <button>Update</button>
-              <button>Delete</button>
+              <button @click="membersDelete(index)">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -47,7 +47,10 @@ export default {
   methods: {
     membersCreate(member) {
       this.$store.dispatch('membersCreate', member)
-    }
+    },
+    membersDelete(index) {
+      this.$store.dispatch('membersDelete', index)
+    },
   },
   created() {
     console.log(this.member)

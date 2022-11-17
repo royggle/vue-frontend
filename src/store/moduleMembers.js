@@ -30,6 +30,10 @@ export const moduleMembers = {
       // thisStore.state.members = members
       thisStore.commit('membersRead', members)
       console.log('Done membersRead', thisStore.state.members)
+    },
+    membersDelete(thisStore, index) {
+      thisStore.state.members.splice(index, 1)
+      console.log('Done membersDelete', thisStore.state.members)
     }
   }
 }
