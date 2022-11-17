@@ -1,16 +1,9 @@
 <template>
   <div id="app">
-    <header>
-      <h1>Vue.js study</h1>
-    </header>
+    <header-component v-show="true"></header-component>
     <hr />
     <div class="container">
-      <nav class="nav">
-        <ul>
-          <li><h2>Members</h2></li>
-          <li><h2>Search</h2></li>
-        </ul>
-      </nav>
+      <nav-component v-if="true"></nav-component>
       <hr />
       <section class="contents">
         <div>
@@ -20,6 +13,21 @@
       </section>
       <hr />
     </div>
-    <footer>Copyright</footer>
+    <footer-component :title="'카피라이트'"></footer-component>
   </div>
 </template>
+
+<!-- 가장 아래에 추가 -->
+<script>
+import HeaderComponent from './components/HeaderComponent.vue'
+import NavComponent from './components/NavComponent.vue'
+import FooterComponent from './components/FooterComponent.vue'
+
+export default {
+  components: {
+    HeaderComponent,
+    NavComponent,
+    FooterComponent,
+  }
+}
+</script>
