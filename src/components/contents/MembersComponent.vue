@@ -13,9 +13,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>홍길동</td>
-            <td>20</td>
+          <tr v-for="(member, index) in members" :key="index">
+            <td>{{member.name}}</td>
+            <td>{{member.age}}</td>
             <td>
               <button>Update</button>
               <button>Delete</button>
@@ -39,6 +39,9 @@ export default {
   computed: {
     member() {
       return this.$store.state.$members.member
+    },
+    members() {
+      return this.$store.state.$members.members
     }
   },
   methods: {
@@ -50,6 +53,7 @@ export default {
     console.log(this.member)
     this.member.name = ''
     this.member.age = ''
+    this.$store.dispatch('membersRead')
   }
 }
 </script>
