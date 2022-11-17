@@ -7,7 +7,7 @@
     color: black;
   }
   a.active {
-    color: white;
+    color: rgb(251, 5, 5);
   }
   h1, footer, .nav ul {
     padding: 0.5rem;
