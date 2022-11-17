@@ -1,30 +1,25 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app">
+    <header>
+      <h1>Vue.js study</h1>
+    </header>
+    <hr />
+    <div class="container">
+      <nav class="nav">
+        <ul>
+          <li><h2>Members</h2></li>
+          <li><h2>Search</h2></li>
+        </ul>
+      </nav>
+      <hr />
+      <section class="contents">
+        <div>
+          <h3>Members</h3>
+          <p>Contents</p>
+        </div>
+      </section>
+      <hr />
+    </div>
+    <footer>Copyright</footer>
+  </div>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
