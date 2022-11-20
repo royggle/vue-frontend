@@ -9,6 +9,10 @@ export default createStore({
   mutations: {
   },
   actions: {
+    axiosError(thisStore, error) {
+      console.error(error.response)
+      alert(error.response || error.response.data || error.response.data.error)
+    }
   },
   modules: {
     $members: moduleMembers

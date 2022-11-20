@@ -5,7 +5,7 @@
     <div class="container">
       <nav-component v-if="true"></nav-component>
       <hr />
-      <section class="contents">
+      <section class="contents" :class="{login: $route.name === 'Login'}">
         <router-view></router-view>
       </section>
       <hr />

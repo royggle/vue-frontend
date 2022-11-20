@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Members</h3>
+    <h3>会員リスト</h3>
     <hr class="d-block" />
     <div>
       <h4>Read</h4>
@@ -14,8 +14,9 @@
         </thead>
         <tbody>
           <tr v-for="(member, index) in members" :key="index">
+            <td><input type="text" placeholder="ID" v-model="member.id" /></td>
             <td><input type="text" placeholder="Name" v-model="member.name" /></td>
-            <td><input type="text" placeholder="Age" v-model="member.age" /></td>
+            <td><input type="password" placeholder="Password" v-model="member.password" /></td>
             <td>
               <button @click="membersUpdate(index, member)">Update</button>
               <button @click="membersDelete(index)">Delete</button>
@@ -27,8 +28,9 @@
     <hr class="d-block" />
     <div>
       <h4>Create</h4>
+      <input type="text" placeholder="ID"  v-model="member.id" />
       <input type="text" placeholder="Name"  v-model="member.name" />
-      <input type="text" placeholder="Age" v-model="member.age" />
+      <input type="password" placeholder="Password" v-model="member.password" />
       <button @click="membersCreate(member)">Create</button>
     </div>
   </div>

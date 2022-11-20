@@ -1,20 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MembersComponent from '../components/contents/MembersComponent.vue'
-import SearchComponent from '../components/contents/SearchComponent.vue'
+import BoardComponent from '../components/contents/BoardComponent.vue'
 import LoginComponent from '../components/contents/LoginComponent.vue'
 
 
 const routes = [
-  { path: '/', redirect: '/members' },
+  { path: '/', redirect: '/login' },
   {
     path: '/members',
     name: 'Members',
     component: MembersComponent
   },
   {
-    path: '/search',
-    name: 'Search',
-    component: SearchComponent
+    path: '/board',
+    name: 'Board',
+    component: BoardComponent
   },
   {
     path: '/login',

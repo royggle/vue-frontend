@@ -1,9 +1,12 @@
+import axios from 'axios'
+
 export const moduleMembers = {
   state: {
     members: [],
     member: {
+      id: '',
       name: '',
-      age: ''
+      password: ''
     }
   },
   mutations: {
@@ -13,11 +16,17 @@ export const moduleMembers = {
   },
   actions: {
     membersCreate(thisStore, member) {
-      thisStore.state.members.push({
-        name: member.name,
-        age: member.age
+      // thisStore.state.members.push({
+      //   name: member.name,
+      //   age: member.age
+      // })
+      // console.log('Done membersCreate', thisStore.state.members)
+      axios.post('http://localhost:8081/api/v1/members', member).then(function(response) {
+        console.log('Done membersCreate', response)
+        thisStore.dispatch('membersRead')
+      }).catch(function(error) {
+        thisStore.dispatch('axiosError', error)
       })
-      console.log('Done membersCreate', thisStore.state.members)
     },
     membersRead(thisStore) {
       const members = [{
