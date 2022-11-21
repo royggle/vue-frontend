@@ -39,6 +39,7 @@ export const moduleBoards = {
       axios.get(`http://localhost:8081/api/v1/boards/${board_idx}`).then(function(response) {
         console.log('Done boardsDetail', response)
         thisStore.commit('boardsDetail', response.data.board)
+        thisStore.commit('repliesRead', response.data.replies)
       }).catch(function(error) {
         thisStore.dispatch('axiosError', error)
       })

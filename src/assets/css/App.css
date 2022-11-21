@@ -118,3 +118,15 @@
 .board-list-table .tbody-tr .title {
   width: 200px;
 }
+
+.replies {
+  border-top: solid 1px #ccc;
+  padding: 16px;
+}
+.replies.none-top {
+  border-top: none;
+}
+.replies .id {
+  display: flex;
+  justify-content: space-between;
+}

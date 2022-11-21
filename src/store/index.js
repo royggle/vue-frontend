@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import { moduleMembers } from './moduleMembers.js'
 import { moduleBoards } from './moduleBoards.js'
+import { moduleReplies } from './moduleReplies.js'
 
 export default createStore({
   state: {
@@ -17,6 +18,7 @@ export default createStore({
   },
   modules: {
     $members: moduleMembers,
-    $boards: moduleBoards
+    $boards: moduleBoards,
+    $replies: moduleReplies
   }
 })

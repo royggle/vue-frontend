@@ -39,36 +39,6 @@ export const moduleMembers = {
       }).catch(function(error) {
         thisStore.dispatch('axiosError', error)
       })
-    },
-    membersCreate(thisStore, member) {
-      // thisStore.state.members.push({
-      //   name: member.name,
-      //   age: member.age
-      // })
-      // console.log('Done membersCreate', thisStore.state.members)
-      axios.post('http://localhost:8081/api/v1/members', member).then(function(response) {
-        console.log('Done membersCreate', response)
-        thisStore.dispatch('membersRead')
-      }).catch(function(error) {
-        thisStore.dispatch('axiosError', error)
-      })
-    },
-    membersRead(thisStore) {
-      axios.get('http://localhost:8081/api/v1/members').then(function(response) {
-        console.log('Done membersRead', response)
-        thisStore.commit('membersRead', response.data.members)
-      }).catch(function(error) {
-        location.href = '/login'
-        thisStore.dispatch('axiosError', error)
-      })
-    },
-    membersDelete(thisStore, index) {
-      thisStore.state.members.splice(index, 1)
-      console.log('Done membersDelete', thisStore.state.members)
-    },
-    membersUpdate(thisStore, { index, member }) {
-      thisStore.state.members[index] = member
-      console.log('Done membersUpdate', thisStore.state.members)
     }
   }
 }

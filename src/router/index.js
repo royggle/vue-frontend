@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import MembersComponent from '../components/contents/MembersComponent.vue'
 import BoardComponent from '../components/contents/BoardComponent.vue'
 import LoginComponent from '../components/contents/LoginComponent.vue'
 import DetailComponent from '../components/contents/DetailComponent.vue'
@@ -8,11 +7,6 @@ import UpdateComponent from '../components/contents/UpdateComponent.vue'
 
 const routes = [
   { path: '/', redirect: '/board' },
-  {
-    path: '/members',
-    name: 'Members',
-    component: MembersComponent
-  },
   {
     path: '/board',
     name: 'Board',
