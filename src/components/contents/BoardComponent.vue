@@ -1,10 +1,13 @@
 <template>
   <div>
+    <div class="board-container">
     <h3>Q ＆ A 掲示板</h3>
+    <button class="write-button" @click="$router.push('/write')">書き込み</button>
+    </div>
     <hr class="d-block" />
     <div>
-      <h4>Read</h4>
-      <table>
+      <h4>リスト</h4>
+      <table class="board-list-table">
         <thead>
           <tr>
             <th>Order</th>
@@ -15,28 +18,35 @@
         </thead>
         <tbody>
           <!-- <tr v-for="(member, index) in " :key="index"> -->
-          <tr>
-            <td><input type="text" placeholder="ID" /></td>
-            <td><input type="text" placeholder="Name"  /></td>
-            <td><input type="password" placeholder="Password" /></td>
-            <td><input type="text" placeholder="Date" /></td>
-            <td>
-              <button >Update</button>
-              <button >Delete</button>
-            </td>
+          <tr v-for="(board, index) in boards" :key="index" class="tbody-tr">
+            <td class="align-center">{{board.board_idx}}</td>
+            <td class="title"><router-link :to="{path: `/detail/${board.board_idx}`}">{{board.title}}</router-link></td>
+            <td class="align-center">{{board.id}}</td>
+            <td class="align-center">{{moment(board.created_datetime).format('YYYY-MM-DD HH:mm')}}</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <hr class="d-block" />
-    <div>
-      <h4>Create</h4>
-      <input type="text" placeholder="ID"  />
-      <input type="text" placeholder="Name"   />
-      <input type="password" placeholder="Password"  />
-      <button >Create</button>
-    </div>
   </div>
 </template>
-<script></script>
+<script>
+import moment from 'moment'
+
+export default {
+  computed: {
+    boards() {
+      return this.$store.state.$boards.boards
+    },
+    moment() {
+      return moment
+    }
+  },
+  methods: {
+  },
+  created() {
+    this.$store.dispatch('boardsRead')
+  }
+}
+
+</script>
 

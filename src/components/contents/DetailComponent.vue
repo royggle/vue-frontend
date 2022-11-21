@@ -1,9 +1,12 @@
 <template>
   <div>
+    <div class="board-container">
     <h3>Q ＆ A 掲示板</h3>
+    <button class="write-button">書き込み</button>
+    </div>
     <hr class="d-block" />
     <div>
-      <h4>Read</h4>
+      <h4>ディテール</h4>
       <table>
         <thead>
           <tr>
@@ -20,10 +23,6 @@
             <td><input type="text" placeholder="Name"  /></td>
             <td><input type="password" placeholder="Password" /></td>
             <td><input type="text" placeholder="Date" /></td>
-            <td>
-              <button >Update</button>
-              <button >Delete</button>
-            </td>
           </tr>
         </tbody>
       </table>
@@ -39,3 +38,4 @@
   </div>
 </template>
 <script></script>
+

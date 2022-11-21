@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="footer">
-      <p class="footer_logo"><img class="logo-image" src="https://www.zois.co.jp/images/common/f_logo.png" alt="zois logo"><span>日本ゾイス株式会社</span></p>
+      <p class="footer_logo"><img class="logo-image" src="https://www.zois.co.jp/images/common/f_logo.png" alt="zois logo">&nbsp;&nbsp;<span>日本ゾイス株式会社</span></p>
         <div class="address_area">
           <ul class="adrs_area01">
             <li>Tel. 050-3554-8749</li>

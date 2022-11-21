@@ -34,12 +34,15 @@
     border-top: 1px solid #ccc;
   }
   input[type=text] {
-    width: 120px;
+    width: 250px;
   }
   input[type=password] {
-    width: 120px; 
+    width: 250px; 
   }
-  
+  textarea {
+    width: 500px;
+    height: 200px;
+  }
   .d-block {
     display: block;
   }
@@ -85,8 +88,33 @@
   h2.login-button {
     padding-top: 15px;
   }
-
   .login-page {
     margin: 0 auto;
   }
+  .button-right {
+    display: flex;
+    justify-content: flex-end;
+    padding-right : 70px;
+  }
+  .board-container {
+    display: flex;
+    justify-content: space-between;
+  }
 
+.board-list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.board-list-table .align-center {
+  text-align: center;
+}
+.board-list-table th {
+  padding: 8px;
+}
+.board-list-table .tbody-tr td {
+  border-top: solid 1px #ccc;
+  padding: 8px;
+}
+.board-list-table .tbody-tr .title {
+  width: 200px;
+}
