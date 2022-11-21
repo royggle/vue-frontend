@@ -4,7 +4,7 @@ import BoardComponent from '../components/contents/BoardComponent.vue'
 import LoginComponent from '../components/contents/LoginComponent.vue'
 import DetailComponent from '../components/contents/DetailComponent.vue'
 import WriteComponent from '../components/contents/WriteComponent.vue'
-
+import UpdateComponent from '../components/contents/UpdateComponent.vue'
 
 const routes = [
   { path: '/', redirect: '/board' },
@@ -24,7 +24,7 @@ const routes = [
     component: LoginComponent
   },
   {
-    path: '/detail',
+    path: '/detail/:board_idx',
     name: 'Detail',
     component: DetailComponent
   },
@@ -32,6 +32,11 @@ const routes = [
     path: '/write',
     name: 'Write',
     component: WriteComponent
+  },
+  {
+    path: '/update/:board_idx',
+    name: 'Update',
+    component: UpdateComponent
   }
 ]
 

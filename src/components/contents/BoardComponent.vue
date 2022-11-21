@@ -17,7 +17,6 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <tr v-for="(member, index) in " :key="index"> -->
           <tr v-for="(board, index) in boards" :key="index" class="tbody-tr">
             <td class="align-center">{{board.board_idx}}</td>
             <td class="title"><router-link :to="{path: `/detail/${board.board_idx}`}">{{board.title}}</router-link></td>
@@ -47,6 +46,5 @@ export default {
     this.$store.dispatch('boardsRead')
   }
 }
-
 </script>
 

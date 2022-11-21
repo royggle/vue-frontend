@@ -12,6 +12,9 @@ export const moduleBoards = {
   mutations: {
     boardsRead(state, boards) {
       state.boards = boards
+    },
+    boardsDetail(state, board) {
+      state.board = board
     }
   },
   actions: {
@@ -32,13 +35,31 @@ export const moduleBoards = {
         thisStore.dispatch('axiosError', error)
       })
     },
-    membersDelete(thisStore, index) {
-      thisStore.state.members.splice(index, 1)
-      console.log('Done membersDelete', thisStore.state.members)
+    boardsDetail(thisStore, board_idx) {
+      axios.get(`http://localhost:8081/api/v1/boards/${board_idx}`).then(function(response) {
+        console.log('Done boardsDetail', response)
+        thisStore.commit('boardsDetail', response.data.board)
+      }).catch(function(error) {
+        thisStore.dispatch('axiosError', error)
+      })
     },
-    membersUpdate(thisStore, { index, member }) {
-      thisStore.state.members[index] = member
-      console.log('Done membersUpdate', thisStore.state.members)
+    boardsDelete(thisStore, { board_idx, callback }) {
+      axios.delete(`http://localhost:8081/api/v1/boards/${board_idx}`).then(function(response) {
+        console.log('Done boardsDelete', response)
+        alert('削除処理')
+        callback()
+      }).catch(function(error) {
+        thisStore.dispatch('axiosError', error)
+      })
+    },
+    boardsUpdate(thisStore, { board_idx, board, callback }) {
+      axios.put(`http://localhost:8081/api/v1/boards/${board_idx}`, board).then(function(response) {
+        console.log('Done boardsUpdate', response)
+        alert('完了')
+        callback()
+      }).catch(function(error) {
+        thisStore.dispatch('axiosError', error)
+      })
     }
   }
 }

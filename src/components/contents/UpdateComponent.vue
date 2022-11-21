@@ -5,12 +5,12 @@
     </div>
     <hr class="d-block" />
     <div>
-      <h4>書き込み</h4>
+      <h4>修正</h4>
       <table>
         <tbody>
           <tr>
             <th>Writer</th>
-            <td><input type="text" placeholder="id" v-model="board.id" /></td>
+            <td><input type="text" placeholder="id" v-model="board.id" readonly/></td>
           </tr>
           <tr>
             <th>Title</th>
@@ -23,36 +23,45 @@
         </tbody>
       </table>
       <div class="button-right">
-        <button @click="boardsCreate(board)">完了</button>
+        <button @click="boardsDelete()">削除</button>
+        <button @click="boardsUpdate(board)">完了</button>
       </div>
     </div>
-    <hr class="d-block" />
   </div>
 </template>
+
 <script>
-  export default {
+export default {
   computed: {
     board() {
       return this.$store.state.$boards.board
-    },
-
+    }
   },
   methods: {
-    boardsCreate(board) {
+    boardsUpdate(board) {
       const callback = () => {
         this.$router.push('/board')
       }
-      this.$store.dispatch('boardsCreate', {
+      this.$store.dispatch('boardsUpdate', {
         board,
+        board_idx: this.$route.params.board_idx,
         callback
       })
-    }
+    },
+    boardsDelete() {
+      if (!confirm('Are you sure?')) return
+      const callback = () => {
+        this.$router.push('/board')
+      }
+      this.$store.dispatch('boardsDelete', {
+        board_idx: this.$route.params.board_idx,
+        callback
+      })
+    },
+    
   },
   created() {
-    this.board.id = ''
-    this.board.title = ''
-    this.board.contents = ''
+    this.$store.dispatch('boardsDetail', this.$route.params.board_idx)
   }
 }
 </script>
-
