@@ -19,6 +19,7 @@ export const moduleReplies = {
         contents: reply.contents
       }).then(function(response) {
         console.log('Done repliesCreate', response)
+        thisStore.state.reply.contents = ''
         alert('完了')
         callback()
       }).catch(function(error) {

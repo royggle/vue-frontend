@@ -1,17 +1,26 @@
 <template>
+    <div class="black-bg" v-show="isShow">
+      <div class="white-bg">
+        <h5>パスワードを入力してください</h5>
+        <br/>
+        <td><input type="password" placeholder="Password" v-model="board.password" /></td>
+        <br/> 
+        <button @click="passwordCheck(board.password)" type="button">確認</button>
+      </div>
+    </div>
   <div>
     <div class="board-container">
-    <h3>Q ＆ A 掲示板</h3>
-    <button class="write-button" @click="$router.push(`/update/${board_idx}`)">修正</button>
+    <h2>詳細ページ</h2>
+    <button class="write-button" @click="handle_toggle">修正</button>
+    <!-- <button class="write-button" @click="$router.push(`/update/${board_idx}`)">修正</button> -->
     </div>
     <hr class="d-block" />
     <div>
-      <h4>ディテール</h4>
       <table>
         <tbody>
           <tr>
             <th>Writer</th>
-            <td><input type="text" placeholder="id" v-model="board.id" readonly /></td>
+            <td><input type="text" placeholder="ID" v-model="board.id" readonly /></td>
           </tr>
           <tr>
             <th>Title</th>
@@ -45,7 +54,7 @@
         </div>
       </div>
       <div v-else>
-        댓글은 관리자로 로그인 해야 달 수 있습니다.
+        コメントは管理者としてログインしないと書き込めません。
       </div>
     </div>
   </div>
@@ -53,6 +62,7 @@
 
 <script>
 export default {
+  
   computed: {
     board() {
       return this.$store.state.$boards.board
@@ -68,6 +78,11 @@ export default {
     },
     isLogin() {
       return this.$store.state.$members.isLogin
+    }
+  },
+  data() {
+    return {
+      isShow: false 
     }
   },
   methods: {
@@ -90,7 +105,28 @@ export default {
         reply_idx,
         callback
       })
-    }
+    },
+    close(event) {
+      if (event.target.classList.contains('black-bg') || event.target.classList.contains('close')) {
+        this.openModal = false
+      }
+      else if (event.target.classList.contains('white-bg')) {
+        this.openModal = true
+      }
+    },
+    handle_toggle(){ 
+      this.isShow = !this.isShow; // #2, #3
+    },
+    passwordCheck(password) {
+      console.log("password: " + this.board.password);
+      this.$store.dispatch('passwordCheck', {
+        board_idx: this.board_idx,
+        password,
+        callback: () => {
+          this.$router.push(`/update/${this.board_idx}`)
+        }
+      })
+    },
   },
   created() {
     this.$store.dispatch('boardsDetail', this.board_idx)

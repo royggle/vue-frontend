@@ -1,11 +1,10 @@
 <template>
   <div>
     <div class="board-container">
-    <h3>Q ＆ A 掲示板</h3>
+    <h2>修正</h2>
     </div>
     <hr class="d-block" />
     <div>
-      <h4>修正</h4>
       <table>
         <tbody>
           <tr>

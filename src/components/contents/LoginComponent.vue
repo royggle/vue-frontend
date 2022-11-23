@@ -1,6 +1,6 @@
 <template>
   <div class="login-page">
-    <h3>ログイン</h3>
+    <h2>ログイン</h2>
     <hr class="d-block" />
     <div>
       <table>

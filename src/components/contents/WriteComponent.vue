@@ -1,16 +1,15 @@
 <template>
   <div>
     <div class="board-container">
-    <h3>Q ＆ A 掲示板</h3>
+    <h2>書き込み</h2>
     </div>
     <hr class="d-block" />
     <div>
-      <h4>書き込み</h4>
       <table>
         <tbody>
           <tr>
             <th>Writer</th>
-            <td><input type="text" placeholder="id" v-model="board.id" /></td>
+            <td><input type="text" placeholder="ID" v-model="board.id" /></td>
           </tr>
           <tr>
             <th>Title</th>
@@ -19,6 +18,10 @@
           <tr>
             <th>Contnent</th>
             <td><textarea placeholder="Contents" v-model="board.contents"></textarea></td>
+          </tr>
+          <tr>
+            <th>password</th>
+            <td><input type="password" placeholder="Password" v-model="board.password" /></td>
           </tr>
         </tbody>
       </table>
@@ -52,6 +55,7 @@
     this.board.id = ''
     this.board.title = ''
     this.board.contents = ''
+    this.board.password = ''
   }
 }
 </script>
